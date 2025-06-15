@@ -139,6 +139,8 @@
             this.btnsign.TabIndex = 3;
             this.btnsign.Text = "Register";
             this.btnsign.Click += new System.EventHandler(this.btnsign_Click);
+            this.btnsign.Enter += new System.EventHandler(this.btnsign_Enter);
+            this.btnsign.Leave += new System.EventHandler(this.btnsign_Leave);
             // 
             // btnLogin
             // 
@@ -159,6 +161,8 @@
             this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Login";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            this.btnLogin.Enter += new System.EventHandler(this.btnLogin_Enter);
+            this.btnLogin.Leave += new System.EventHandler(this.btnLogin_Leave);
             // 
             // lblLogin
             // 

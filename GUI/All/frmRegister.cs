@@ -105,7 +105,7 @@ namespace AppDatLichKham.GUI.All
                 MessageBox.Show("Tài khoản đã tồn tại");
                 return;
             }
-            bool isSuccess = TaiKhoanDAL.Instance.DangKy(username, password, "BenhNhan");
+            bool isSuccess = TaiKhoanDAL.Instance.DangKy(username, password, "Bệnh nhân");
 
             if (isSuccess)
             {

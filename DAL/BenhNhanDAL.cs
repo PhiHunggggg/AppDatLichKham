@@ -67,7 +67,7 @@ namespace AppDatLichKham.DAL
                 new SqlParameter("@benhNhanID", benhNhanID)
             };
             using (SqlDataReader reader = ExecuteReader(query, parameters))
-            { 
+            {
 
                 if (reader.Read())
                 {
@@ -78,10 +78,40 @@ namespace AppDatLichKham.DAL
                     benhnhan.Gioitinh = (bool)reader["GioiTinh"];
                     benhnhan.Sdt = reader["SDT"].ToString();
                     benhnhan.Diachi = reader["DiaChi"].ToString();
+                    benhnhan.taikhoanID = reader["TaiKhoanID"] != DBNull.Value ? (int)reader["TaiKhoanID"] : 0;
                     return benhnhan;
                 }
             }
             return null;
+        }
+        public bool XoaBenhNhanVaTaiKhoan(int benhNhanID)
+        {
+            try
+            {
+                // Xóa bệnh nhân
+                string queryBenhNhan = "DELETE FROM BenhNhan WHERE BenhNhanID = @benhNhanID";
+                SqlParameter[] parametersBenhNhan = {
+                    new SqlParameter("@benhNhanID", benhNhanID)
+                };
+                ExecuteNonQuery(queryBenhNhan, parametersBenhNhan);
+                // Xóa tài khoản liên quan
+                string queryTaiKhoan = "DELETE FROM TaiKhoan WHERE BenhNhanID = @benhNhanID";
+                SqlParameter[] parametersTaiKhoan = {
+                    new SqlParameter("@benhNhanID", benhNhanID)
+                };
+                ExecuteNonQuery(queryTaiKhoan, parametersTaiKhoan);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi xóa bệnh nhân và tài khoản: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                    conn.Close();
+            }
         }
     }
 }

@@ -64,6 +64,7 @@
             this.btn14h45 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnlDatLich = new System.Windows.Forms.Panel();
+            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
             this.txtBacsiid = new System.Windows.Forms.TextBox();
             this.lblThoigianhen = new System.Windows.Forms.Label();
             this.txtGioHen = new System.Windows.Forms.TextBox();
@@ -100,16 +101,15 @@
             this.btnDangKi = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.dtk = new DevExpress.XtraEditors.Controls.CalendarControl();
             this.label7 = new System.Windows.Forms.Label();
-            this.toolTipController1 = new DevExpress.Utils.ToolTipController(this.components);
-            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
             this.siticoneButton2 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.toolTipController1 = new DevExpress.Utils.ToolTipController(this.components);
             this.pnlBtn.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlDatLich.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtk.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtk.CalendarTimeProperties)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlBtn
@@ -771,9 +771,22 @@
             this.pnlDatLich.Controls.Add(this.label8);
             this.pnlDatLich.Location = new System.Drawing.Point(0, 0);
             this.pnlDatLich.Name = "pnlDatLich";
-            this.pnlDatLich.Size = new System.Drawing.Size(1737, 1008);
+            this.pnlDatLich.Size = new System.Drawing.Size(1740, 1008);
             this.pnlDatLich.TabIndex = 55;
             this.pnlDatLich.Visible = false;
+            // 
+            // dateEdit1
+            // 
+            this.dateEdit1.EditValue = null;
+            this.dateEdit1.Location = new System.Drawing.Point(271, 175);
+            this.dateEdit1.Name = "dateEdit1";
+            this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit1.Size = new System.Drawing.Size(100, 20);
+            this.dateEdit1.TabIndex = 95;
+            this.dateEdit1.Visible = false;
             // 
             // txtBacsiid
             // 
@@ -1025,7 +1038,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Coiny", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(223)))), ((int)(((byte)(163)))));
-            this.label8.Location = new System.Drawing.Point(764, 164);
+            this.label8.Location = new System.Drawing.Point(766, 164);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(233, 37);
             this.label8.TabIndex = 70;
@@ -1274,6 +1287,8 @@
             this.dtk.CalendarAppearance.WeekDay.Options.UseForeColor = true;
             this.dtk.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtk.DateTime = new System.DateTime(2025, 5, 27, 0, 0, 0, 0);
+            this.dtk.EditValue = new System.DateTime(2025, 5, 27, 0, 0, 0, 0);
             this.dtk.FirstDayOfWeek = System.DayOfWeek.Monday;
             this.dtk.HighlightTodayCell = DevExpress.Utils.DefaultBoolean.True;
             this.dtk.Location = new System.Drawing.Point(274, 492);
@@ -1297,18 +1312,6 @@
             this.label7.Size = new System.Drawing.Size(123, 27);
             this.label7.TabIndex = 50;
             this.label7.Text = "Ngày hẹn ";
-            // 
-            // dateEdit1
-            // 
-            this.dateEdit1.EditValue = null;
-            this.dateEdit1.Location = new System.Drawing.Point(271, 175);
-            this.dateEdit1.Name = "dateEdit1";
-            this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Size = new System.Drawing.Size(100, 20);
-            this.dateEdit1.TabIndex = 95;
             // 
             // siticoneButton2
             // 
@@ -1345,11 +1348,11 @@
             this.panel1.PerformLayout();
             this.pnlDatLich.ResumeLayout(false);
             this.pnlDatLich.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtk.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

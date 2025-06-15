@@ -70,7 +70,7 @@
             this.fpnlchuyenkhoa.Name = "fpnlchuyenkhoa";
             this.fpnlchuyenkhoa.Options.AnchorType = DevExpress.Utils.Win.PopupToolWindowAnchor.Left;
             this.fpnlchuyenkhoa.OwnerControl = this;
-            this.fpnlchuyenkhoa.Size = new System.Drawing.Size(1723, 931);
+            this.fpnlchuyenkhoa.Size = new System.Drawing.Size(1703, 931);
             this.fpnlchuyenkhoa.TabIndex = 72;
             // 
             // flyoutPanelControl2
@@ -80,7 +80,7 @@
             this.flyoutPanelControl2.FlyoutPanel = this.fpnlchuyenkhoa;
             this.flyoutPanelControl2.Location = new System.Drawing.Point(0, 0);
             this.flyoutPanelControl2.Name = "flyoutPanelControl2";
-            this.flyoutPanelControl2.Size = new System.Drawing.Size(1746, 931);
+            this.flyoutPanelControl2.Size = new System.Drawing.Size(1703, 931);
             this.flyoutPanelControl2.TabIndex = 0;
             this.flyoutPanelControl2.Paint += new System.Windows.Forms.PaintEventHandler(this.flyoutPanelControl2_Paint);
             // 

@@ -9,7 +9,7 @@ namespace AppDatLichKham.Entity
     internal class BacSi
     {
         public BacSi() { }
-        public BacSi(int bacsiid,string hoten,int chuyenkhoaid,string sdt, string email,string trinhdo,string chucvu,int tuoi,string chiphikham) {
+        public BacSi(int bacsiid,string hoten,int chuyenkhoaid,string sdt, string email,string trinhdo,string chucvu,int tuoi,string chiphikham,int taikhoanid) {
             this.BacSiID = bacsiid;
             this.HoTen=hoten;
             this.ChuyenKhoaID = chuyenkhoaid;
@@ -19,6 +19,7 @@ namespace AppDatLichKham.Entity
             this.Tuoi = tuoi;
             this.Trinhdo = trinhdo;
             this.ChucVu=chucvu;
+            this.TaiKhoanID = taikhoanID;
         }
         private int bacsid;
         public int BacSiID { get { return bacsid; } set { bacsid = value; } }
@@ -42,5 +43,7 @@ namespace AppDatLichKham.Entity
         public string TenDangNhap { get; set; }
         public string MatKhau { get; set; }
         public int taikhoanID { get; set; }
+        private int taikhoanid;
+        public int TaiKhoanID { get { return taikhoanid; } set { taikhoanid = value; } }
     }
 }

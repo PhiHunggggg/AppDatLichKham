@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using AppDatLichKham.Entity;
 using Microsoft.Data.SqlClient;
 
@@ -33,15 +35,62 @@ namespace AppDatLichKham.DAL
             };
             ExecuteQuery(query, parameters);
         }
-        public void UpdateBacSi(int bacSiID, string tenBacSi, string chuyenKhoa)
+        public bool UpdateBacSi(int bacSiID, string tenBacSi, int chuyenKhoaID,string sdt,string email,string trinhDo,string chucVu,int tuoi,string chiPhiKham)
         {
-            string query = "UPDATE BacSi SET TenBacSi = @tenBacSi, ChuyenKhoa = @chuyenKhoa WHERE BacSiID = @bacSiID";
-            SqlParameter[] parameters = {
+            try
+            {
+                string query = "UPDATE BacSi SET HoTen = @tenBacSi, ChuyenKhoaID = @chuyenKhoa, SDT=@SDT, Email=@Email, TrinhDo=@TrinhDo, ChucVu=@ChucVu, Tuoi=@Tuoi, ChiPhiKham=@chiPhiKham WHERE BacSiID = @bacSiID";
+                SqlParameter[] parameters = {
                 new SqlParameter("@bacSiID", bacSiID),
                 new SqlParameter("@tenBacSi", tenBacSi),
-                new SqlParameter("@chuyenKhoa", chuyenKhoa)
+                new SqlParameter("@chuyenKhoa", chuyenKhoaID),
+                new SqlParameter("@SDT", sdt),
+                new SqlParameter("@Email", email),
+                new SqlParameter("@TrinhDo", trinhDo),
+                new SqlParameter("@ChucVu", chucVu),
+                new SqlParameter("@Tuoi", tuoi),
+                new SqlParameter("@chiPhiKham", chiPhiKham)
             };
-            ExecuteQuery(query, parameters);
+                ExecuteQuery(query, parameters);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi cập nhật thông tin bác sĩ: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                    conn.Close();
+            }
+        }
+        public bool DeleteBacSi(int bacSiID)
+        {
+            try
+            {
+                string query = "DELETE FROM BacSi WHERE BacSiID = @bacSiID";
+                SqlParameter[] parameters = {
+                    new SqlParameter("@bacSiID", bacSiID)
+                };
+                ExecuteQuery(query, parameters);
+                string queryTaiKhoan = "DELETE FROM TaiKhoan WHERE BacSiID = @bacSiID";
+                SqlParameter[] parametersTaiKhoan = {
+                    new SqlParameter("@bacSiID", bacSiID)
+                };
+                ExecuteNonQuery(queryTaiKhoan, parametersTaiKhoan);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi xóa bác sĩ: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                    conn.Close();
+            }
         }
         public List<BacSi> GetBacSiByChuyenKhoa(int chuyenKhoaID)
         {
@@ -64,6 +113,7 @@ namespace AppDatLichKham.DAL
                 bacsi.Trinhdo = reader["TrinhDo"].ToString();
                 bacsi.Tuoi = (int)reader["Tuoi"];
                 bacsi.ChiPhiKham = reader["ChiPhiKham"].ToString();
+                bacsi.TaiKhoanID = reader["TaiKhoanID"] != DBNull.Value? Convert.ToInt32(reader["TaiKhoanID"]): 0;
                 list.Add(bacsi);
             }
             reader.Close();
@@ -74,14 +124,19 @@ namespace AppDatLichKham.DAL
             List<BacSi> danhSach = new List<BacSi>();
 
             string query = @"
-        SELECT BS.BacSiID, BS.HoTen,BS.ChuyenKhoaID, BS.SDT, BS.Email, BS.TrinhDo, BS.ChucVu, BS.Tuoi, BS.ChiPhiKham
-        FROM BacSi BS
-        WHERE BS.ChuyenKhoaID = @chuyenKhoaID
-        AND BS.BacSiID NOT IN (
-            SELECT LH.BacSiID
-            FROM LichHen LH
-            WHERE LH.NgayHen = @ngay AND LH.GioHen = @gio
-        )";
+        SELECT BS.BacSiID, BS.HoTen, BS.ChuyenKhoaID, BS.SDT, BS.Email, BS.TrinhDo, BS.ChucVu, BS.Tuoi, BS.ChiPhiKham, BS.TaiKhoanID
+FROM BacSi BS
+WHERE BS.ChuyenKhoaID = @chuyenKhoaID
+AND BS.BacSiID NOT IN (
+    SELECT LH.BacSiID
+    FROM LichHen LH
+    WHERE LH.NgayHen = @ngay AND LH.GioHen = @gio
+)
+AND BS.BacSiID NOT IN (
+    SELECT LN.BacSiID
+    FROM LichNghi LN
+    WHERE LN.NgayNghi = @ngay AND LN.Canghi =@gio
+)";
 
             SqlParameter[] parameters = {
         new SqlParameter("@chuyenKhoaID", chuyenKhoaID),
@@ -103,7 +158,8 @@ namespace AppDatLichKham.DAL
                         Trinhdo = reader.GetString(5),
                         ChucVu = reader["ChucVu"].ToString(),
                         Tuoi = (int)reader["Tuoi"],
-                        ChiPhiKham = reader["ChiPhiKham"].ToString()
+                        ChiPhiKham = reader["ChiPhiKham"].ToString(),
+                        TaiKhoanID = (int)reader["TaiKhoanID"]
                     };
                     danhSach.Add(bs);
                 }
@@ -131,6 +187,7 @@ namespace AppDatLichKham.DAL
                 bacsi.Trinhdo = reader["TrinhDo"].ToString();
                 bacsi.Tuoi = (int)reader["Tuoi"];
                 bacsi.ChiPhiKham = reader["ChiPhiKham"].ToString();
+                bacsi.TaiKhoanID = reader["TaiKhoanID"] != DBNull.Value ? Convert.ToInt32(reader["TaiKhoanID"]) : 0;
             }
             reader.Close();
             return bacsi;

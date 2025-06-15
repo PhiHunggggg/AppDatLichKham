@@ -31,5 +31,19 @@ namespace AppDatLichKham.Entity
         public  int BenhNhanID { get => benhnhanid; set => benhnhanid = value; }
         private  int bacsiid;
         public int BacSiID { get => bacsiid; set => bacsiid = value; }
+        public string LoaiTaiKhoanHienThi
+        {
+            get
+            {
+                if (LoaiTaiKhoan == "BenhNhan")
+                    return "Bệnh Nhân";
+                else if (LoaiTaiKhoan == "BacSi")
+                    return "Bác Sĩ";
+                else if (LoaiTaiKhoan == "Admin")
+                    return "Quản Trị Viên";
+                else
+                    return "Không xác định";
+            }
+        }
     }
 }

@@ -23,7 +23,7 @@ namespace AppDatLichKham.DAL
             }
             private set => instance = value;
         }
-        private LichLamViecDAL() { }
+        protected LichLamViecDAL() { }
         public bool CheckCaTrung(int bacsiid, DateTime ngay, TimeSpan gio)
         {
             string query = @"
@@ -64,7 +64,7 @@ namespace AppDatLichKham.DAL
                         GioBatDau = (TimeSpan)reader["GioBatDau"],
                         GioKetThuc = reader["GioKetThuc"] != DBNull.Value ? (TimeSpan)reader["GioKetThuc"] : TimeSpan.MinValue,
                         TrangThai = (bool)reader["TrangThai"],
-                        LichHenID = (int)reader["LichhenID"]
+                        LichHenID = (int)reader["LichhenID"],
                     };
                     lichLamViecs.Add(lich);
                 }

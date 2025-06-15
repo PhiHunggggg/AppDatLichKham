@@ -64,20 +64,25 @@ namespace AppDatLichKham.Entity
         }
         public string TrangThaiString
         {
-            get {
+            get
+            {
                 if (TrangThai == false)
                     return "Bị từ chối";
                 else if (TrangThai == true)
                     return "Đã xác nhận";
                 else
-                    return "Chưa xác nhận"; 
-                }
+                    return "Chưa xác nhận";
+            }
         }
         public string KhanCapString
         {
             get
             { return KhanCap ? "Có" : "Không"; }
         }
-
+        public bool IsGroupHeader { get; set; } = false;
+        public string GroupTitle
+        {
+            get; set;
+        }
     }
 }

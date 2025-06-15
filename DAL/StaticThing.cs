@@ -12,6 +12,9 @@ namespace AppDatLichKham.DAL
         public static int idBenhNhanTaiKhoan = -1;
         public static int idBacSiTaiKhoan = -1;
         public static int idTaiKhoan = -1;
+        public static string mk = "";
+        public static string TenDangNhap = null;
+        public static int chieudai = 0;
         public static int TinhTuoi(DateTime ngaySinh)
         {
             DateTime today = DateTime.Today;

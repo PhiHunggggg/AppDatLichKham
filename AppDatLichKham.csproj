@@ -190,14 +190,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\BenhNhanBLL.cs" />
+    <Compile Include="BLL\LichLamViecBLL.cs" />
     <Compile Include="BLL\DatLichBLL.cs" />
     <Compile Include="DAL\BacSiDAL.cs" />
     <Compile Include="DAL\BenhNhanDAL.cs" />
     <Compile Include="DAL\ChuyenKhoaDAL.cs" />
     <Compile Include="DAL\DataProvider.cs" />
     <Compile Include="DAL\DatLichDAL.cs" />
+    <Compile Include="DAL\Entity\LichNghi.cs" />
+    <Compile Include="DAL\Entity\LichSuKham.cs" />
+    <Compile Include="DAL\Entity\PhongKhamEntity.cs" />
     <Compile Include="DAL\LichHenDAL.cs" />
     <Compile Include="DAL\LichLamViecDAL.cs" />
+    <Compile Include="DAL\LichNghiDAL.cs" />
+    <Compile Include="DAL\LichSuKhamDAL.cs" />
+    <Compile Include="DAL\PhongKhamDAL.cs" />
     <Compile Include="DAL\Security.cs" />
     <Compile Include="DAL\SQLConnection.cs" />
     <Compile Include="DAL\StaticThing.cs" />
@@ -210,11 +217,35 @@
     <Compile Include="DAL\Entity\LichKham.cs" />
     <Compile Include="DAL\Entity\LichLamViec.cs" />
     <Compile Include="DAL\Entity\TaiKhoan.cs" />
+    <Compile Include="GUI\Admin\FormThemTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Admin\FormThemTaiKhoan.Designer.cs">
+      <DependentUpon>FormThemTaiKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Admin\frmDuyetLichNghi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Admin\frmDuyetLichNghi.Designer.cs">
+      <DependentUpon>frmDuyetLichNghi.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Admin\frmMainAD.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\Admin\frmMainAD.Designer.cs">
       <DependentUpon>frmMainAD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Admin\frmTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Admin\frmTaiKhoan.Designer.cs">
+      <DependentUpon>frmTaiKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\All\frmDoiMk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\All\frmDoiMk.Designer.cs">
+      <DependentUpon>frmDoiMk.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\All\frmLogin.cs">
       <SubType>Form</SubType>
@@ -228,11 +259,29 @@
     <Compile Include="GUI\All\frmRegister.Designer.cs">
       <DependentUpon>frmRegister.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\BacSy\frmCaKham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\BacSy\frmCaKham.Designer.cs">
+      <DependentUpon>frmCaKham.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\BacSy\frmLichLamViec.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\BacSy\frmLichLamViec.Designer.cs">
       <DependentUpon>frmLichLamViec.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\BacSy\frmLichNghi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\BacSy\frmLichNghi.Designer.cs">
+      <DependentUpon>frmLichNghi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\BacSy\frmLichSuKhamBacSy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\BacSy\frmLichSuKhamBacSy.Designer.cs">
+      <DependentUpon>frmLichSuKhamBacSy.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\BacSy\frmMainBS.cs">
       <SubType>Form</SubType>
@@ -295,8 +344,30 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLyLichKhamDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="QuanLyLichKhamDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyLichKhamDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyLichKhamDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyLichKhamDataSet2.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="GUI\Admin\FormThemTaiKhoan.resx">
+      <DependentUpon>FormThemTaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Admin\frmDuyetLichNghi.resx">
+      <DependentUpon>frmDuyetLichNghi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Admin\frmMainAD.resx">
       <DependentUpon>frmMainAD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Admin\frmTaiKhoan.resx">
+      <DependentUpon>frmTaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\All\frmDoiMk.resx">
+      <DependentUpon>frmDoiMk.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\All\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -304,8 +375,17 @@
     <EmbeddedResource Include="GUI\All\frmRegister.resx">
       <DependentUpon>frmRegister.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\BacSy\frmCaKham.resx">
+      <DependentUpon>frmCaKham.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\BacSy\frmLichLamViec.resx">
       <DependentUpon>frmLichLamViec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\BacSy\frmLichNghi.resx">
+      <DependentUpon>frmLichNghi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\BacSy\frmLichSuKhamBacSy.resx">
+      <DependentUpon>frmLichSuKhamBacSy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\BacSy\frmMainBS.resx">
       <DependentUpon>frmMainBS.cs</DependentUpon>
@@ -371,6 +451,28 @@
     </None>
     <None Include="QuanLyLichKhamDataSet.xss">
       <DependentUpon>QuanLyLichKhamDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyLichKhamDataSet1.xsc">
+      <DependentUpon>QuanLyLichKhamDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyLichKhamDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanLyLichKhamDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QuanLyLichKhamDataSet1.xss">
+      <DependentUpon>QuanLyLichKhamDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyLichKhamDataSet2.xsc">
+      <DependentUpon>QuanLyLichKhamDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyLichKhamDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanLyLichKhamDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QuanLyLichKhamDataSet2.xss">
+      <DependentUpon>QuanLyLichKhamDataSet2.xsd</DependentUpon>
     </None>
     <None Include="Resources\Ảnh hành tinh plus.png" />
   </ItemGroup>

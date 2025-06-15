@@ -164,7 +164,6 @@ namespace AppDatLichKham.GUI.BenhNhan
                     return true;
 
                 }
-                MessageBox.Show("Bạn đã có lịch hẹn vào ngày này rồi");
                 pnlBtn.Visible = false;
                 return true;
             }
@@ -222,6 +221,14 @@ namespace AppDatLichKham.GUI.BenhNhan
                     }
                     return;
                 }
+                else if(CheckTrungNgay(StaticThing.idBenhNhanTaiKhoan, dtk.SelectedRanges[0].StartDate.Date))
+                {
+                    pnlBtn.Visible = false;
+                    btnDangKi.Enabled = false;
+                    lblLoi.Visible = true;
+                    lblLoi.Text = "Bạn đã có lịch hẹn vào ngày này.";
+                    return;
+                }
                 else
                 {
                     pnlBtn.Visible = true;
@@ -268,17 +275,20 @@ namespace AppDatLichKham.GUI.BenhNhan
                 return;
             }
 
-            if (CheckTrungNgay(StaticThing.idBenhNhanTaiKhoan, dtk.SelectedRanges[0].StartDate.Date))
+            else if (CheckTrungNgay(StaticThing.idBenhNhanTaiKhoan, dtk.SelectedRanges[0].StartDate.Date))
             {
                 return;
             }
-            pnlBtn.Visible = true;
-            DateTime ngay = dtk.SelectedRanges[0].StartDate.Date;
-            if (txtChuyenkhoaid.Text == "")
+            else if (txtChuyenkhoaid.Text == "")
             {
                 return;
             }
-            CapNhatTrangThaiGio(Convert.ToInt32(txtChuyenkhoaid.Text), ngay);
+            else
+            {
+                DateTime ngay = dtk.SelectedRanges[0].StartDate.Date;
+                CapNhatTrangThaiGio(Convert.ToInt32(txtChuyenkhoaid.Text), ngay);
+                pnlBtn.Visible = true;
+            }
         }
 
         private void btnDangKi_Click(object sender, EventArgs e)
@@ -331,6 +341,7 @@ namespace AppDatLichKham.GUI.BenhNhan
                 MessageBox.Show("Đăng ký thành công, vui lòng chờ xác nhận của bác sỹ .");
                 pnlDatLich.Visible = false;
                 pnlBtn.Visible = false;
+                btnDangKi.Enabled = false;  
             }
             else
             {

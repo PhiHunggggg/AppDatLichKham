@@ -79,6 +79,8 @@ namespace AppDatLichKham.GUI.All
                 MessageBox.Show("Login successful !!!");
                 int taiKhoanID = TaiKhoanDAL.Instance.GetTaiKhoanID(username, password);
                 StaticThing.idTaiKhoan = taiKhoanID;
+                StaticThing.mk = password;
+                StaticThing.TenDangNhap = username;
                 this.Close();
             }
             else
@@ -144,6 +146,26 @@ namespace AppDatLichKham.GUI.All
                 txtMat_khau.Text = "(Password)";
                 txtMat_khau.PasswordChar = '\0';
             }
+        }
+
+        private void btnLogin_Enter(object sender, EventArgs e)
+        {
+            btnLogin.FillColor = Color.Purple;
+        }
+
+        private void btnLogin_Leave(object sender, EventArgs e)
+        {
+            btnLogin.FillColor = Color.DeepSkyBlue;
+        }
+
+        private void btnsign_Enter(object sender, EventArgs e)
+        {
+            btnsign.FillColor = Color.Purple;
+        }
+
+        private void btnsign_Leave(object sender, EventArgs e)
+        {
+            btnsign.FillColor = Color.MediumBlue;
         }
     }
 }

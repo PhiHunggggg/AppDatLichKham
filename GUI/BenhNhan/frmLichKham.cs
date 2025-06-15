@@ -47,8 +47,10 @@ namespace AppDatLichKham.GUI.BenhNhan
                     lichHen.Khoa=bacSi.ChuyenKhoa;
                 }
             }
-
-            dataGridView1.DataSource = danhSachLichHen;
+            var danhsachsapxep = danhSachLichHen
+            .OrderBy(x => x.NgayHen.Date)              // 1. Ngày hẹn tăng dần
+            .ToList();
+            dataGridView1.DataSource = danhsachsapxep;
             dataGridView1.Columns["LichHenID"].HeaderText = "Lịch Hẹn ID";
             dataGridView1.Columns["BacSiHoTen"].HeaderText = "Bác sỹ phụ trách";
             dataGridView1.Columns["Khoa"].HeaderText = "Chuyên khoa";
@@ -56,6 +58,7 @@ namespace AppDatLichKham.GUI.BenhNhan
             dataGridView1.Columns["BacSiID"].Visible = false;
             dataGridView1.Columns["BenhNhanID"].Visible = false;
             dataGridView1.Columns["NgayHen"].HeaderText = "Ngày Hẹn";
+            dataGridView1.Columns["NgayHen"].DefaultCellStyle.Format = "dd/MM/yyyy";
             dataGridView1.Columns["GioHen"].HeaderText = "Giờ Hẹn";
             dataGridView1.Columns["GioDenThucTe"].Visible = false;
             dataGridView1.Columns["TrangThai"].Visible = false;
@@ -67,7 +70,13 @@ namespace AppDatLichKham.GUI.BenhNhan
             dataGridView1.Columns["DiaChi"].Visible = false;
             dataGridView1.Columns["trangThaiString"].HeaderText = "Trạng thái";
             dataGridView1.Columns["phongKhamString"].HeaderText = "Phòng khám";
-
+            dataGridView1.Columns["LichHenID"].Width = 40;
+            dataGridView1.Columns["LichHenID"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.Columns["BacSiHoTen"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridView1.Columns["Khoa"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridView1.Columns["NgayHen"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.Columns["GioHen"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.Columns["DonThuoc"].Visible=false;
         }
 
         private void frmLichKham_Load(object sender, EventArgs e)
@@ -131,6 +140,7 @@ namespace AppDatLichKham.GUI.BenhNhan
                 lbltenbacSy.Text = row.Cells["BacSiHoTen"].Value.ToString();
                 lblThoiGianKham.Text = row.Cells["GioHen"].Value.ToString();
                 lblIdcaKhasm.Text = row.Cells["LichHenID"].Value.ToString();
+                lblNgayKham.Text = Convert.ToDateTime(row.Cells["NgayHen"].Value).ToString("dd/MM/yyyy");
                 AppDatLichKham.Entity.BenhNhan benhNhan = BenhNhanDAL.Instance.GetBenhNhanByID(StaticThing.idBenhNhanTaiKhoan);
                 DateTime ngaySinh = benhNhan.Ngaysinh;
                 if (ngaySinh != null)

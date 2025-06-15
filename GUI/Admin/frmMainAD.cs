@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AppDatLichKham.DAL;
+using AppDatLichKham.GUI.Admin;
+using AppDatLichKham.GUI.All;
 
 namespace AppDatLichKham.GUI.BenhNhan
 {
@@ -39,7 +42,22 @@ namespace AppDatLichKham.GUI.BenhNhan
 
         private void siticoneButton1_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new frmDatLich());
+            OpenChildForm(new frmTaiKhoan());
+        }
+
+        private void siticoneButton6_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmDoiMk());
+        }
+
+        private void frmMainAD_Load(object sender, EventArgs e)
+        {
+            siticoneButton6.Text = StaticThing.TenDangNhap;
+        }
+
+        private void siticoneButton2_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmDuyetLichNghi());
         }
     }
 }

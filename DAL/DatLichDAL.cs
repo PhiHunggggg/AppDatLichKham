@@ -49,12 +49,76 @@ namespace AppDatLichKham.DAL
         }
         public bool XacNhanLichHenMini(int datLichId)
         {
-            string query = "UPDATE DatLich SET TrangThai = 1 WHERE DatLichID = @DatLichID";
-            SqlParameter[] parameters = {
-                new SqlParameter("@DatLichID", datLichId)
-            };
-            int rowsAffected = ExecuteNonQuery(query, parameters);
-            return rowsAffected > 0;
+            try
+            {
+                if (conn.State == ConnectionState.Closed)
+                    conn.Open();
+                string getQuery = "SELECT * FROM DatLich WHERE DatLichID = @DatLichID";
+                DatLich lich = null;
+                using (SqlCommand cmd = new SqlCommand(getQuery, conn))
+                {
+                    cmd.Parameters.AddWithValue("@DatLichID", datLichId);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            lich = new DatLich
+                            {
+                                DatLichID = reader.GetInt32(0),
+                                BacSiID = reader.GetInt32(1),
+                                BenhNhanID = reader.GetInt32(2),
+                                HoTen = reader.GetString(3),
+                                GioiTinh = reader.GetBoolean(4),
+                                Sdt = reader.GetString(5),
+                                DiaChi = reader.GetString(6),
+                                GhiChu = reader.GetString(7),
+                                NgayHen = reader.GetDateTime(8),
+                                GioDangki = reader.GetTimeSpan(9)
+                            };
+                        }
+                    }
+                }
+                if (lich == null)
+                {
+                    MessageBox.Show("Không tìm thấy lịch hẹn!");
+                    return false;
+                }
+                // 2. Cập nhật trạng thái lịch trong DatLich
+                string updateQuery = "UPDATE DatLich SET TrangThai = 1 WHERE DatLichID = @DatLichID";
+                using (SqlCommand cmd = new SqlCommand(updateQuery, conn))
+                {
+                    cmd.Parameters.AddWithValue("@DatLichID", datLichId);
+                    cmd.ExecuteNonQuery();
+                }
+                string tuChoiQuery = @"
+                UPDATE DatLich
+               SET TrangThai = 0
+               WHERE BacSiID = @BacSiID
+               AND NgayHen = @NgayHen
+               AND GioDangKi = @GioDangki
+               AND DatLichID != @DatLichID
+               AND TrangThai IS NULL";
+                using (SqlCommand cmd = new SqlCommand(tuChoiQuery, conn))
+                {
+                    cmd.Parameters.AddWithValue("@BacSiID", lich.BacSiID);
+                    cmd.Parameters.AddWithValue("@NgayHen", lich.NgayHen.Date);
+                    cmd.Parameters.AddWithValue("@GioDangki", lich.GioDangki);
+                    cmd.Parameters.AddWithValue("@DatLichID", datLichId);
+                    cmd.ExecuteNonQuery();
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi xác nhận lịch: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                    conn.Close();
+
+            }
         }
         public int DemSoLichDaXacNhan(int bacSiID, DateTime ngayHen, TimeSpan gioDangKi)
         {

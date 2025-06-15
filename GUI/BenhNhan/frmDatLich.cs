@@ -15,6 +15,7 @@ using DevExpress.XtraEditors;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 using DevExpress.XtraEditors.Calendar;
 using System.Globalization;
+using AppDatLichKham.DAL.Entity;
 
 namespace AppDatLichKham.GUI.BenhNhan
 {
@@ -46,6 +47,7 @@ namespace AppDatLichKham.GUI.BenhNhan
             siticoneComboBox1.BorderRadius = 19;
             List<BacSi> danhsachbacsi = BacSiDAL.Instance.GetBacSiByChuyenKhoa(Convert.ToInt32(siticoneComboBox1.SelectedValue));
             siticoneComboBox2.DataSource = danhsachbacsi;
+            siticoneComboBox2.SelectedIndex = 2;
             siticoneComboBox2.DisplayMember = "HoTen";
             siticoneComboBox2.ValueMember = "BacSiID";
             siticoneComboBox2.BorderRadius = 19;
@@ -139,8 +141,14 @@ namespace AppDatLichKham.GUI.BenhNhan
             {
                 if (control is Button btn && btn.Tag is TimeSpan gio)
                 {
-
-                    bool isBusy = LichLamViecDAL.Instance.CheckCaTrung(bacSiID, ngay, gio);
+                    bool isBusy;
+                    if (!LichLamViecDAL.Instance.CheckCaTrung(bacSiID, ngay, gio) && !LichNghiDAL.Instance.CheckLichNghiExistsCa(bacSiID, ngay, gio, true)){
+                        isBusy = false;
+                    }
+                    else
+                    {
+                        isBusy = true;
+                    }
 
                     if (isBusy)
                     {
@@ -164,7 +172,6 @@ namespace AppDatLichKham.GUI.BenhNhan
                     return true;
             
                 }
-                MessageBox.Show("Bạn đã có lịch hẹn vào ngày này rồi");
                 pnlBtn.Visible = false;
                 return true;
             }
@@ -199,12 +206,21 @@ namespace AppDatLichKham.GUI.BenhNhan
             lblThoigianhen.Text = txtGioHen.Text;
             pnlDatLich.Visible = true;
         }
+        private List<DateTime> ngayNghiBacSiHienTai = new List<DateTime>();
 
         private void siticoneComboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtBacsiid.Text = siticoneComboBox2.SelectedValue.ToString();
-            pnlBtn.Visible = false;
-            btnDangKi.Enabled = false;
+            if (siticoneComboBox2.SelectedValue != null && siticoneComboBox2.SelectedValue is int)
+            {
+                int bacSiID = Convert.ToInt32(siticoneComboBox2.SelectedValue);
+                txtBacsiid.Text = bacSiID.ToString();
+                ngayNghiBacSiHienTai = LichNghiDAL.Instance.GetNgayNghiByBacSiID(bacSiID);
+                dtk.Invalidate(); // Vẽ lại calendar
+            }
+            else
+            {
+                // Handle the case where SelectedValue is null or invalid  
+            }
         }
 
         private void siticoneButton1_Click(object sender, EventArgs e)
@@ -220,6 +236,7 @@ namespace AppDatLichKham.GUI.BenhNhan
                 MessageBox.Show("Đăng ký thành công, vui lòng chờ xác nhận của bác sỹ .");
                 pnlDatLich.Visible = false;
                 pnlBtn.Visible = false;
+                btnDangKi.Enabled = false;
             }
             else
             {
@@ -257,8 +274,9 @@ namespace AppDatLichKham.GUI.BenhNhan
             if (e.Date < DateTime.Today || e.Date.DayOfWeek == DayOfWeek.Saturday || e.Date.DayOfWeek == DayOfWeek.Sunday)
             {
                 DateTime day = e.Date;
+                int bacSiID = Convert.ToInt32(siticoneComboBox2.SelectedValue);
 
-                if (day < DateTime.Today || day.DayOfWeek == DayOfWeek.Saturday || day.DayOfWeek == DayOfWeek.Sunday)
+                if (day < DateTime.Today || day.DayOfWeek == DayOfWeek.Saturday || day.DayOfWeek == DayOfWeek.Sunday|| ngayNghiBacSiHienTai.Any(d => d.Date == e.Date.Date))
                 {
                     using (Brush backBrush = new SolidBrush(Color.Gray))
                     using (Brush textBrush = new SolidBrush(Color.Black))
@@ -286,7 +304,6 @@ namespace AppDatLichKham.GUI.BenhNhan
         private void dtk_EditValueChanged(object sender, EventArgs e)
         {
             if (isResettingDate) return;
-
             if (dtk.EditValue is DateTime selectedDate)
             {
                 if (selectedDate < DateTime.Today ||
@@ -309,6 +326,25 @@ namespace AppDatLichKham.GUI.BenhNhan
                     {
                         lblLoi.Text = "Không thể đặt lịch trước ngày hôm nay";
                     }
+                }
+                else if(LichNghiDAL.Instance.CheckLichNghiExistsNgay(Convert.ToInt32(siticoneComboBox2.SelectedValue), selectedDate, true))
+                {
+                    isResettingDate = true;
+                    pnlBtn.Visible = false;
+                    // Reset ngày tạm
+                    dtk.EditValue = DateTime.Today.AddDays(1);
+                    // Reset lại giá trị hợp lệ
+                    dtk.EditValue = lastValidDate ?? DateTime.Today;
+                    isResettingDate = false;
+                    lblLoi.Visible = true;
+                    lblLoi.Text = "Bác sĩ đã nghỉ vào ngày này";
+                }
+                else if (CheckTrungNgay(StaticThing.idBenhNhanTaiKhoan, selectedDate))
+                {
+                    pnlBtn.Visible = false;
+                    btnDangKi.Enabled = false;
+                    lblLoi.Visible = true;
+                    lblLoi.Text = "Bạn đã có lịch hẹn vào ngày này.";
                     return;
                 }
                 else

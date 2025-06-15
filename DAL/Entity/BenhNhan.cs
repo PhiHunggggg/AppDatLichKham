@@ -10,7 +10,7 @@ namespace AppDatLichKham.Entity
     internal class BenhNhan
     {
         public BenhNhan() { }
-        public BenhNhan(int benhnhanid, string hoten,DateTime ngaysinh,bool gioitinh,string diachi,string sdt)
+        public BenhNhan(int benhnhanid, string hoten,DateTime ngaysinh,bool gioitinh,string diachi,string sdt, string taikhoanid)
         {
             this.BenhNhanID = benhnhanid;
             this.Hoten = hoten;
@@ -18,6 +18,7 @@ namespace AppDatLichKham.Entity
             this.Gioitinh = gioitinh;
             this.Diachi = diachi;
             this.Sdt = sdt;
+            this.taikhoanid = taikhoanID;
         }
         private int benhnhanid;
         public int BenhNhanID{get{return benhnhanid;}set { benhnhanid = value; } }
@@ -41,6 +42,7 @@ namespace AppDatLichKham.Entity
         public string TenDangNhap { get; set; }
         public string MatKhau { get; set; }
         public int taikhoanID { get; set; }
-
+        private int taikhoanid;
+        public int TaiKhoanID { get { return taikhoanid; } set { taikhoanid = value; } }
     }
 }

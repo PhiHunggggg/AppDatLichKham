@@ -28,34 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainBS));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.pnlShow = new System.Windows.Forms.Panel();
             this.pnlMini = new System.Windows.Forms.Panel();
+            this.siticoneButton11 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.siticoneButton3 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.siticoneButton4 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.siticoneButton1 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.siticoneButton2 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.panel4 = new System.Windows.Forms.Panel();
             this.siticoneButton6 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.siticoneButton7 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.siticoneButton9 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.siticoneButton8 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.lblHaa = new System.Windows.Forms.Label();
-            this.siticoneButton11 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            this.siticoneButton1 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            this.siticoneButton2 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.btnmini = new System.Windows.Forms.PictureBox();
             this.btnmaxi = new System.Windows.Forms.PictureBox();
             this.btnX = new System.Windows.Forms.PictureBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.lblHaa = new System.Windows.Forms.Label();
             this.siticoneButton5 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.toastNotificationsManager1 = new DevExpress.XtraBars.ToastNotifications.ToastNotificationsManager(this.components);
             this.panel1.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.pnlMini.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnmini)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnmaxi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnX)).BeginInit();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.toastNotificationsManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -86,6 +90,7 @@
             this.pnlShow.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlShow.BackColor = System.Drawing.Color.AliceBlue;
             this.pnlShow.Location = new System.Drawing.Point(202, -1);
             this.pnlShow.Name = "pnlShow";
             this.pnlShow.Size = new System.Drawing.Size(1531, 914);
@@ -95,7 +100,7 @@
             // 
             this.pnlMini.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.pnlMini.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
+            this.pnlMini.BackColor = System.Drawing.Color.RoyalBlue;
             this.pnlMini.Controls.Add(this.siticoneButton11);
             this.pnlMini.Controls.Add(this.siticoneButton3);
             this.pnlMini.Controls.Add(this.siticoneButton4);
@@ -106,37 +111,125 @@
             this.pnlMini.Size = new System.Drawing.Size(202, 910);
             this.pnlMini.TabIndex = 6;
             // 
+            // siticoneButton11
+            // 
+            this.siticoneButton11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
+            this.siticoneButton11.BorderColor = System.Drawing.Color.DarkSlateBlue;
+            this.siticoneButton11.BorderThickness = 2;
+            this.siticoneButton11.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.siticoneButton11.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.siticoneButton11.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.siticoneButton11.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.siticoneButton11.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.siticoneButton11.FillColor = System.Drawing.Color.RoyalBlue;
+            this.siticoneButton11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.siticoneButton11.ForeColor = System.Drawing.Color.White;
+            this.siticoneButton11.Image = global::AppDatLichKham.Properties.Resources.icon_bệnh_nhân;
+            this.siticoneButton11.ImageOffset = new System.Drawing.Point(-9, 0);
+            this.siticoneButton11.ImageSize = new System.Drawing.Size(46, 46);
+            this.siticoneButton11.Location = new System.Drawing.Point(0, 328);
+            this.siticoneButton11.Name = "siticoneButton11";
+            this.siticoneButton11.Size = new System.Drawing.Size(203, 82);
+            this.siticoneButton11.TabIndex = 9;
+            this.siticoneButton11.Text = "Đăng kí nghỉ";
+            this.siticoneButton11.TextOffset = new System.Drawing.Point(-6, 0);
+            this.siticoneButton11.Click += new System.EventHandler(this.siticoneButton11_Click);
+            // 
             // siticoneButton3
             // 
-            this.siticoneButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
+            this.siticoneButton3.BackColor = System.Drawing.Color.RoyalBlue;
+            this.siticoneButton3.BorderColor = System.Drawing.Color.DarkSlateBlue;
+            this.siticoneButton3.BorderThickness = 2;
+            this.siticoneButton3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.siticoneButton3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.siticoneButton3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.siticoneButton3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.siticoneButton3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.siticoneButton3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
-            this.siticoneButton3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.siticoneButton3.FillColor = System.Drawing.Color.RoyalBlue;
+            this.siticoneButton3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.siticoneButton3.ForeColor = System.Drawing.Color.White;
-            this.siticoneButton3.Location = new System.Drawing.Point(0, 172);
+            this.siticoneButton3.Image = global::AppDatLichKham.Properties.Resources.icon_them;
+            this.siticoneButton3.ImageOffset = new System.Drawing.Point(-10, 0);
+            this.siticoneButton3.ImageSize = new System.Drawing.Size(35, 35);
+            this.siticoneButton3.Location = new System.Drawing.Point(0, 168);
             this.siticoneButton3.Name = "siticoneButton3";
             this.siticoneButton3.Size = new System.Drawing.Size(203, 88);
             this.siticoneButton3.TabIndex = 6;
-            this.siticoneButton3.Text = "siticoneButton3";
+            this.siticoneButton3.Text = "     Ca khám";
+            this.siticoneButton3.TextOffset = new System.Drawing.Point(-14, 0);
+            this.siticoneButton3.Click += new System.EventHandler(this.siticoneButton3_Click);
             // 
             // siticoneButton4
             // 
-            this.siticoneButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
+            this.siticoneButton4.BackColor = System.Drawing.Color.RoyalBlue;
+            this.siticoneButton4.BorderColor = System.Drawing.Color.DarkSlateBlue;
+            this.siticoneButton4.BorderThickness = 2;
+            this.siticoneButton4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.siticoneButton4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.siticoneButton4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.siticoneButton4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.siticoneButton4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.siticoneButton4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
-            this.siticoneButton4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.siticoneButton4.FillColor = System.Drawing.Color.RoyalBlue;
+            this.siticoneButton4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.siticoneButton4.ForeColor = System.Drawing.Color.White;
-            this.siticoneButton4.Location = new System.Drawing.Point(0, 254);
+            this.siticoneButton4.Image = global::AppDatLichKham.Properties.Resources.icon_j_do;
+            this.siticoneButton4.ImageOffset = new System.Drawing.Point(-6, 0);
+            this.siticoneButton4.ImageSize = new System.Drawing.Size(40, 40);
+            this.siticoneButton4.Location = new System.Drawing.Point(0, 251);
             this.siticoneButton4.Name = "siticoneButton4";
             this.siticoneButton4.Size = new System.Drawing.Size(203, 82);
             this.siticoneButton4.TabIndex = 7;
-            this.siticoneButton4.Text = "siticoneButton4";
+            this.siticoneButton4.Text = "Lịch sử khám";
+            this.siticoneButton4.TextOffset = new System.Drawing.Point(-1, 0);
+            this.siticoneButton4.Click += new System.EventHandler(this.siticoneButton4_Click);
+            // 
+            // siticoneButton1
+            // 
+            this.siticoneButton1.BackColor = System.Drawing.Color.RoyalBlue;
+            this.siticoneButton1.BorderColor = System.Drawing.Color.DarkSlateBlue;
+            this.siticoneButton1.BorderThickness = 2;
+            this.siticoneButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.siticoneButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.siticoneButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.siticoneButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.siticoneButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.siticoneButton1.FillColor = System.Drawing.Color.RoyalBlue;
+            this.siticoneButton1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.siticoneButton1.ForeColor = System.Drawing.Color.White;
+            this.siticoneButton1.Image = global::AppDatLichKham.Properties.Resources.Icon_cuốn_lịch;
+            this.siticoneButton1.ImageOffset = new System.Drawing.Point(-8, 0);
+            this.siticoneButton1.ImageSize = new System.Drawing.Size(55, 55);
+            this.siticoneButton1.Location = new System.Drawing.Point(0, 1);
+            this.siticoneButton1.Name = "siticoneButton1";
+            this.siticoneButton1.Size = new System.Drawing.Size(203, 89);
+            this.siticoneButton1.TabIndex = 4;
+            this.siticoneButton1.Text = "Lịch đăng ký";
+            this.siticoneButton1.TextOffset = new System.Drawing.Point(-10, 0);
+            this.siticoneButton1.Click += new System.EventHandler(this.siticoneButton1_Click);
+            // 
+            // siticoneButton2
+            // 
+            this.siticoneButton2.BackColor = System.Drawing.Color.RoyalBlue;
+            this.siticoneButton2.BorderColor = System.Drawing.Color.DarkSlateBlue;
+            this.siticoneButton2.BorderThickness = 2;
+            this.siticoneButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.siticoneButton2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.siticoneButton2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.siticoneButton2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.siticoneButton2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.siticoneButton2.FillColor = System.Drawing.Color.RoyalBlue;
+            this.siticoneButton2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.siticoneButton2.ForeColor = System.Drawing.Color.White;
+            this.siticoneButton2.Image = global::AppDatLichKham.Properties.Resources.Icon_bác_sỹ1;
+            this.siticoneButton2.ImageOffset = new System.Drawing.Point(-7, 0);
+            this.siticoneButton2.ImageSize = new System.Drawing.Size(55, 55);
+            this.siticoneButton2.Location = new System.Drawing.Point(-1, 84);
+            this.siticoneButton2.Name = "siticoneButton2";
+            this.siticoneButton2.Size = new System.Drawing.Size(203, 88);
+            this.siticoneButton2.TabIndex = 5;
+            this.siticoneButton2.Text = "Lịch làm việc";
+            this.siticoneButton2.TextOffset = new System.Drawing.Point(-8, 0);
+            this.siticoneButton2.Click += new System.EventHandler(this.siticoneButton2_Click);
             // 
             // panel4
             // 
@@ -176,6 +269,7 @@
             this.siticoneButton6.TabIndex = 2;
             this.siticoneButton6.Text = "Nguyễn Phi Hùng";
             this.siticoneButton6.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.siticoneButton6.Click += new System.EventHandler(this.siticoneButton6_Click);
             // 
             // siticoneButton7
             // 
@@ -237,94 +331,6 @@
             this.siticoneButton8.TabIndex = 4;
             this.siticoneButton8.Text = "Home";
             // 
-            // panel3
-            // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.BackColor = System.Drawing.Color.RoyalBlue;
-            this.panel3.Controls.Add(this.lblHaa);
-            this.panel3.Location = new System.Drawing.Point(0, -6);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(715, 113);
-            this.panel3.TabIndex = 0;
-            // 
-            // lblHaa
-            // 
-            this.lblHaa.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblHaa.AutoSize = true;
-            this.lblHaa.Font = new System.Drawing.Font("Cooper Black", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHaa.ForeColor = System.Drawing.Color.GhostWhite;
-            this.lblHaa.Location = new System.Drawing.Point(11, 37);
-            this.lblHaa.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblHaa.Name = "lblHaa";
-            this.lblHaa.Size = new System.Drawing.Size(135, 36);
-            this.lblHaa.TabIndex = 8;
-            this.lblHaa.Text = "JT APP";
-            // 
-            // siticoneButton11
-            // 
-            this.siticoneButton11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
-            this.siticoneButton11.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.siticoneButton11.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.siticoneButton11.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.siticoneButton11.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.siticoneButton11.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
-            this.siticoneButton11.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.siticoneButton11.ForeColor = System.Drawing.Color.White;
-            this.siticoneButton11.Image = global::AppDatLichKham.Properties.Resources.Icon_cuốn_lịch;
-            this.siticoneButton11.ImageOffset = new System.Drawing.Point(-2, 0);
-            this.siticoneButton11.ImageSize = new System.Drawing.Size(55, 55);
-            this.siticoneButton11.Location = new System.Drawing.Point(0, 336);
-            this.siticoneButton11.Name = "siticoneButton11";
-            this.siticoneButton11.Size = new System.Drawing.Size(203, 82);
-            this.siticoneButton11.TabIndex = 9;
-            this.siticoneButton11.Text = "Danh sách lịch";
-            this.siticoneButton11.TextOffset = new System.Drawing.Point(-5, 0);
-            // 
-            // siticoneButton1
-            // 
-            this.siticoneButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
-            this.siticoneButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.siticoneButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.siticoneButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.siticoneButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.siticoneButton1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
-            this.siticoneButton1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.siticoneButton1.ForeColor = System.Drawing.Color.White;
-            this.siticoneButton1.Image = global::AppDatLichKham.Properties.Resources.Icon_cuốn_lịch;
-            this.siticoneButton1.ImageOffset = new System.Drawing.Point(-8, 0);
-            this.siticoneButton1.ImageSize = new System.Drawing.Size(55, 55);
-            this.siticoneButton1.Location = new System.Drawing.Point(0, 1);
-            this.siticoneButton1.Name = "siticoneButton1";
-            this.siticoneButton1.Size = new System.Drawing.Size(203, 89);
-            this.siticoneButton1.TabIndex = 4;
-            this.siticoneButton1.Text = "Lịch đăng ký";
-            this.siticoneButton1.TextOffset = new System.Drawing.Point(-10, 0);
-            this.siticoneButton1.Click += new System.EventHandler(this.siticoneButton1_Click);
-            // 
-            // siticoneButton2
-            // 
-            this.siticoneButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
-            this.siticoneButton2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.siticoneButton2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.siticoneButton2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.siticoneButton2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.siticoneButton2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
-            this.siticoneButton2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.siticoneButton2.ForeColor = System.Drawing.Color.White;
-            this.siticoneButton2.Image = global::AppDatLichKham.Properties.Resources.Icon_bác_sỹ1;
-            this.siticoneButton2.ImageOffset = new System.Drawing.Point(-7, 0);
-            this.siticoneButton2.ImageSize = new System.Drawing.Size(55, 55);
-            this.siticoneButton2.Location = new System.Drawing.Point(0, 90);
-            this.siticoneButton2.Name = "siticoneButton2";
-            this.siticoneButton2.Size = new System.Drawing.Size(203, 88);
-            this.siticoneButton2.TabIndex = 5;
-            this.siticoneButton2.Text = "Lịch làm việc";
-            this.siticoneButton2.TextOffset = new System.Drawing.Point(-8, 0);
-            this.siticoneButton2.Click += new System.EventHandler(this.siticoneButton2_Click);
-            // 
             // btnmini
             // 
             this.btnmini.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -358,6 +364,32 @@
             this.btnX.TabIndex = 1;
             this.btnX.TabStop = false;
             // 
+            // panel3
+            // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.BackColor = System.Drawing.Color.RoyalBlue;
+            this.panel3.Controls.Add(this.lblHaa);
+            this.panel3.Location = new System.Drawing.Point(0, -6);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(715, 113);
+            this.panel3.TabIndex = 0;
+            // 
+            // lblHaa
+            // 
+            this.lblHaa.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblHaa.AutoSize = true;
+            this.lblHaa.Font = new System.Drawing.Font("Cooper Black", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHaa.ForeColor = System.Drawing.Color.GhostWhite;
+            this.lblHaa.Location = new System.Drawing.Point(11, 37);
+            this.lblHaa.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblHaa.Name = "lblHaa";
+            this.lblHaa.Size = new System.Drawing.Size(135, 36);
+            this.lblHaa.TabIndex = 8;
+            this.lblHaa.Text = "JT APP";
+            // 
             // siticoneButton5
             // 
             this.siticoneButton5.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -380,26 +412,37 @@
             this.siticoneButton5.Text = "Nguyễn Phi Hùng";
             this.siticoneButton5.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
+            // toastNotificationsManager1
+            // 
+            this.toastNotificationsManager1.ApplicationId = "JT APP";
+            this.toastNotificationsManager1.Notifications.AddRange(new DevExpress.XtraBars.ToastNotifications.IToastNotificationProperties[] {
+            new DevExpress.XtraBars.ToastNotifications.ToastNotification("f1d0810f-a811-42ad-8d70-ad9ec99a88c8", global::AppDatLichKham.Properties.Resources.ChatGPT_Image_10_40_43_27_thg_4__2025_removebg_preview, "Thông báo !!!", "Bạn có tin nhắn mới", "ádfgg", DevExpress.XtraBars.ToastNotifications.ToastNotificationSound.Mail, DevExpress.XtraBars.ToastNotifications.ToastNotificationDuration.Default, DevExpress.XtraBars.ToastNotifications.ToastNotificationTemplate.ImageAndText01),
+            new DevExpress.XtraBars.ToastNotifications.ToastNotification("78a09bd1-029e-4043-b7b6-ac365752291e", null, "Pellentesque lacinia tellus eget volutpat", "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor i" +
+                    "ncididunt ut labore et dolore magna aliqua.", "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor i" +
+                    "ncididunt ut labore et dolore magna aliqua.", DevExpress.XtraBars.ToastNotifications.ToastNotificationTemplate.Text01)});
+            // 
             // frmMainBS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1726, 1010);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmMainBS";
-            this.Text = "frmMain";
+            this.Text = "Doctor";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMainBS_Load);
             this.panel1.ResumeLayout(false);
             this.pnlMain.ResumeLayout(false);
             this.pnlMini.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnmini)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnmaxi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnX)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.toastNotificationsManager1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -426,5 +469,6 @@
         private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton11;
         private System.Windows.Forms.Panel pnlMini;
         private System.Windows.Forms.Panel pnlShow;
+        private DevExpress.XtraBars.ToastNotifications.ToastNotificationsManager toastNotificationsManager1;
     }
 }

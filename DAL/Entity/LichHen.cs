@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AppDatLichKham.DAL;
 
 namespace AppDatLichKham.Entity
 {
     internal class LichHen
     {
         public LichHen() { }
-        public LichHen(int lichhenid, int benhnhanid, int bacsiid, DateTime ngayhen, TimeSpan giohen,TimeSpan? giodenthucte, bool trangthai, string ghiChu, string hotennguoikham, string sdt, bool gioiTinh, string diachi,int phongKham)
+        public LichHen(int lichhenid, int benhnhanid, int bacsiid, DateTime ngayhen, TimeSpan giohen,TimeSpan? giodenthucte, bool trangthai, string ghiChu, string hotennguoikham, string sdt, bool gioiTinh, string diachi,int phongKham,string donthuoc)
         {
             this.LichHenID = lichhenid;
             this.BenhNhanID = benhnhanid;
@@ -24,6 +25,7 @@ namespace AppDatLichKham.Entity
             this.GioiTinh = gioiTinh;
             this.DiaChi = diachi;
             this.PhongKham = phongKham;
+            this.DonThuoc = donthuoc;
         }
         private int lichhenid;
         public int LichHenID { get => lichhenid; set => lichhenid = value; }
@@ -76,10 +78,11 @@ namespace AppDatLichKham.Entity
                 if (PhongKham == 0)
                     return "Chưa cập nhật";
                 else
-                    return PhongKham.ToString();
+                    return PhongKhamDAL.Instance.GetTenPhongKhamByID(PhongKham);
             }
         }
-
+        private string donthuoc;
+        public string DonThuoc { get => donthuoc; set => donthuoc = value; }
 
 
     }

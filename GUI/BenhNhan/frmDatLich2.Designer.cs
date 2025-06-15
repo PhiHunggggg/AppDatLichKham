@@ -217,6 +217,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEdit1.Size = new System.Drawing.Size(100, 20);
             this.dateEdit1.TabIndex = 95;
+            this.dateEdit1.Visible = false;
             // 
             // txtBacsiid
             // 
@@ -1200,6 +1201,8 @@
             this.dtk.CalendarAppearance.WeekDay.Options.UseForeColor = true;
             this.dtk.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtk.DateTime = new System.DateTime(2025, 5, 27, 0, 0, 0, 0);
+            this.dtk.EditValue = new System.DateTime(2025, 5, 27, 0, 0, 0, 0);
             this.dtk.FirstDayOfWeek = System.DayOfWeek.Monday;
             this.dtk.HighlightTodayCell = DevExpress.Utils.DefaultBoolean.True;
             this.dtk.Location = new System.Drawing.Point(386, 462);
@@ -1225,6 +1228,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -1236,6 +1240,7 @@
             // 
             // siticoneComboBox1
             // 
+            this.siticoneComboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.siticoneComboBox1.BackColor = System.Drawing.Color.Transparent;
             this.siticoneComboBox1.BorderRadius = 19;
             this.siticoneComboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -1314,6 +1319,7 @@
             // 
             // siticoneShapes1
             // 
+            this.siticoneShapes1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.siticoneShapes1.BorderThickness = 0;
             this.siticoneShapes1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(26)))), ((int)(((byte)(27)))));
             this.siticoneShapes1.LineEndCap = System.Drawing.Drawing2D.LineCap.Square;
